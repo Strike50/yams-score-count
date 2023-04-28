@@ -37,14 +37,17 @@ const YamsGridPage = () => {
             <input onChange={(event) => handlePlayerNameChange(element, event.target.value)}/>
           </div>
         )}
-        {console.log(players)}
       </div>
     <table style={{ border: '4px black solid', margin: '15px'}}>
       <thead>
       <tr>
         <td></td>
-        {arrayNbPlayers.map((element, i) =>
-          <td key={`player-${element}`}>{players[element]?.name}</td>)}
+        {arrayNbPlayers.map((element, i) => {
+          return <td key={`player-${element}`}>
+            {/*@ts-ignore*/}
+            {players[element]?.name}
+          </td>
+        })}
       </tr>
       </thead>
     <tbody style={{border: '2px black solid'}}>
