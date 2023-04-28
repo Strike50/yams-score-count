@@ -2,6 +2,7 @@ import Head from "next/head";
 import {useState} from "react";
 
 import {PlayerSelector} from "@components/PlayerSelector/PlayerSelector";
+import {TableHeader} from "@components/TableHeader/TableHeader";
 
 type Player = {
   name: string;
@@ -18,15 +19,7 @@ const YamsGridPage = () => {
       <h1>Grille de score YAMS</h1>
       <PlayerSelector playerList={playerList} setPlayerList={setPlayerList}/>
       <table style={{ border: '4px black solid', margin: '15px'}}>
-        <thead>
-        <tr>
-          <td></td>
-          {Object.entries(playerList).map(([position, {name}]) => <td key={`player-${position}`}>
-              {name}
-            </td>
-          )}
-        </tr>
-        </thead>
+        <TableHeader playerList={playerList} />
         <tbody style={{border: '2px black solid'}}>
         <tr><td>1 [total de 1]</td></tr>
         <tr><td>2 [total de 2]</td></tr>
@@ -36,7 +29,6 @@ const YamsGridPage = () => {
         <tr><td>6 [total de 6]</td></tr>
         <tr><td>Bonus si {'>'} à 62 [35]</td></tr>
         <tr><td>Total supérieur</td></tr>
-        <br/>
         <tr><td>Brelan [total]</td></tr>
         <tr><td>Carré [total]</td></tr>
         <tr><td>Full House [25]</td></tr>
@@ -45,7 +37,6 @@ const YamsGridPage = () => {
         <tr><td>Yams [50]</td></tr>
         <tr><td>Chance [Total]</td></tr>
         <tr><td>Total inférieur [Total]</td></tr>
-        <br/>
         <tr><td>Total</td></tr>
         </tbody>
       </table>
