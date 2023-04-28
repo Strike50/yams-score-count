@@ -22,7 +22,7 @@ const YamsGridPage = () => {
       <div>
         <span>Nombre de joueurs: </span>
         <span>{nbOfPlayer} </span>
-        <select onChange={(event) => setNumberOfPlayer(event.target.value)}>
+        <select onChange={(event) => setNumberOfPlayer(Number(event.target.value))}>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
